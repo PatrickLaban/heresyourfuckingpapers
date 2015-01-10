@@ -27,11 +27,77 @@ One of our team members (Creatrix Tiara), who has dealt with a lifetime of immig
 The game has a few phases:
 
 * The entry interview
-* The escort game, with minigame checkpoints
+* The requirements, with minigame checkpoints
 * The final approval or denial process
 
 Along the way random factors either based on the input of the player (stretch goal) or chosen by the computer affect the gameplay options as well as the final result. There is also an option to "expedite" the visa process monetarily.
 
+Occasionally the process may be subject to "crashing": the game seems to hang on load, forcing the player to restart. Any unsaved progress would be lost (or the game could be extra evil and erase any saved progress). Sometimes the requirements also change, requiring the player to replay the minigames or play new ones.
+
 ### Entry Interview
 
-The entry interview starts off with the player being asked for the name, gender, and country of origin. All answers are open-ended. Sometimes the player is given follow-up questions where the bureaucrat 
+The entry interview starts off with the player being asked for the name, gender, and country of origin. All answers are open-ended. Sometimes the player's answer is challenged by the bureaucrat (determined at random).
+
+A stretch goal would be to have the player's answers determine the rest of the gameplay - the minigames and/or the end score.
+
+### Requirements
+
+The player has to visit different checkpoints to complete minigame "requirements". The player has to travel to each checkpoint while "escorting" some paperwork; the paperwork trails behind them slowly, so often the player has to stop and wait for the paperwork to catch up.
+
+Each checkpoint has a different minigame that reflects some part of the visa application process. Winning each checkpoint is necessary to move forward and get the visa approved - but it's not always that easy. Winning certain minigames may also unlock other minigames/requirements.
+
+Some possible minigames include:
+
+* **Wait For The Stars To Align**: A match-3 game where the only important match is three stars in a row. However, it takes a long time for all three stars to appear on the board.
+* **Invisible Wall Maze**: The player faces a seemingly open space and needs to get from one end to another. However, as the player travels through, they realise that there are invisible walls, and the player needs to navigate through these walls to get to the other side.
+* **Photo Perfect**: The player has to align a passport photo the right way. Any small mistakes render the photo invalid and the player has to start again.
+
+Other minigames are also possible; ideas are much welcomed!
+
+### Final process
+
+The scores from the minigames (and possibly the interview questions) are calculated in addition to a randomized luck score. If the total score reaches a certain threshold, the visa is approved; if not, it's denied and the player starts over.
+
+## Extra Gameplay Elements
+
+### Randomness
+
+Randomness plays a huge part both in this game and in the real-world visa process. Even with the most perfect applications/gameplay, the player still may not succeed in winning/obtaining a visa.
+
+Randomness can be added to the game in:
+
+* The questions asked by the bureaucrat
+* The followup responses made by the bureaucrat, both in type and quantity
+* The types and amount of requirement checkpoints/minigames
+* The specific needs of each checkpoint, such as the target score or end goal
+* Changes in requirements, such as requiring the player to replay a minigame for a different goal (or because all progress has been erased, like a lost document) or play new games
+* The chance of expedition being denied
+* The overall approval scoring
+* The minimum target approval score
+
+### Expedition
+
+In the real world, visas can be expedited - approved faster and sometimes with more convenience to the applicant - through extra payment. There are two ways that expedition can be bought:
+
+1. Earning in-game money via mini-games or the escort game - this is very rare and amounts are low
+2. Paying with real money via in-app purchases
+
+While expedition makes it much more likely that the visa will be approved/the player will win the game, it is **not** a guaranteed win: there is still a chance that the player may lose. Either the added score boost from the expedition money is not enough to push the total amount to a win, or the expedition is denied entirely (possibly assumed to be a bribe) and causes negative scoring in the approval process.
+
+If the player does lose, there are no refunds (just like in real life) and the player will need to start again with zero expedition dollars.
+
+### Fake Crashes
+
+Occasionally the game may seem like it has hung or crash; things take a while to load, and the player assumes (sometimes rightly, sometimes wrongly) that they need to restart the game to continue. Any unsaved progress will be lost.
+
+This fake crash would be most commonly encountered when the player submits their "application" (completing all minigames and submitting their scores plus any expedition money), simulating how online visa application sites sometimes crash on the last day due to tons of simultaneous submissions. The fake crash can also hit during the requirements stage, sometimes leading to "lost" data on completed minigames (forcing the player to replay).
+
+## User-created Content
+
+This game has potential to incorporate user-created content both in gameplay and through identity-related markers, much like badges and achievements. Some possible avenues include:
+
+* User-created minigames
+* User-created visas, allowing players to create visas that represent themselves, an affiliation (nationality, gender, sexuality, favourite brands and pop culture, etc), or a work of art, and exchange them with other players
+* User-created passports to hold the above visas
+
+These especially have strong potential to be created in collaboration with non-profits, social justice organizations, clubs, and businesses as a way to gain membership and awareness or create community.
