@@ -10,6 +10,11 @@ function Start () {
 	this.approved.SetActive(false);
 	this.rejected = GameObject.Find("rejected");
 	this.rejected.SetActive(false);
+	
+	var success_percent : UnityEngine.UI.Text = 
+		GameObject.Find("success_percent_text").GetComponent("Text")
+		as UnityEngine.UI.Text;
+	success_percent.text = "Success Chance: " + this.CalculateSuccessPercent().ToString() + "%";
 
 	var g : GameGlobals = GameGlobals.Singleton();	
 	if (g != null) {
@@ -36,18 +41,25 @@ public function LaunchLevel(lev : String) {
 	Application.LoadLevel(lev);
 }
 
-public function SubmitApplication() {
+function CalculateSuccessPercent() {
 	var win_percent : float = 10.0;
 	var g : GameGlobals = GameGlobals.Singleton();	
 	
-	if (g.finished_escort) {
-		win_percent += 20.0;
+	if (g != null) {
+		if (g.finished_escort) {
+			win_percent += 20.0;
+		}
+		
+		if (g.finished_invisible) {
+			win_percent += 20.0;
+		}
 	}
 	
-	if (g.finished_invisible) {
-		win_percent += 20.0;
-	}
-	
+	return win_percent;
+}
+
+public function SubmitApplication() {
+	var win_percent : float = this.CalculateSuccessPercent();
 	if (Random.value <= win_percent) {
 		this.approved.SetActive(true);
 	} else {
