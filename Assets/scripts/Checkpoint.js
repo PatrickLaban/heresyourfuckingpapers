@@ -8,12 +8,13 @@ var finished = false;
 function Start () {
 }
 
+/*
 function RandomPos() : Vector3 {
 	var dims = Boundary2D.CameraBounds();
 	var min_y : float = dims['min_y'];
 	var max_y : float = dims['max_y'];
 	var min_x : float = dims['min_x'];
-	var max_x : float = dims['max_x'];
+	var max_x : float = dims['max_x'] as float;
 	
 	min_x += this.collider2D.bounds.size.x;
 	max_x -= this.collider2D.bounds.size.x;
@@ -24,6 +25,7 @@ function RandomPos() : Vector3 {
 	var y = min_y + (Random.value * (max_y - min_y));
 	return new Vector3(x, y, 0);
 }
+*/
 
 function OnCollisionEnter2D(collision : Collision2D) {
 	if (this.finished) {
@@ -56,10 +58,11 @@ function OnCollisionEnter2D(collision : Collision2D) {
 	finished = true;
 	
 	if (this.next_checkpoint == "") {
-		// TODO: done with level
-		Application.LoadLevel("nop");
+		var g : GameGlobals = GameGlobals.Singleton();		
+		g.finished_escort = true;
+		Application.LoadLevel("main_menu");
 	} else {		
-		var next : Checkpoint = GameObject.Find(this.next_checkpoint).GetComponent("Checkpoint");
+		var next : Checkpoint = GameObject.Find(this.next_checkpoint).GetComponent("Checkpoint") as Checkpoint;
 		next.is_active = true;
 	}
 }
