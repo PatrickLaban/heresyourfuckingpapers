@@ -17,7 +17,7 @@ public static function Singleton() : GameGlobals {
 
 public function PlayGame() {
 	// TODO: open an intro dialogue
-	Application.LoadLevel("main_menu");
+	Application.LoadLevel("dialogue");
 }
 
 function Start () {

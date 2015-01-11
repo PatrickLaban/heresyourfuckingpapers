@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-var MOVE_SCALE = 10;
+var MOVE_SCALE = 0.2;
 @HideInInspector
 var leader : GameObject;
 @HideInInspector
