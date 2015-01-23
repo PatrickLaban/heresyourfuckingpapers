@@ -5,6 +5,7 @@ var dtree : DialogueTree;
 var curr_node : DialogueTree.Node;
 
 var dpanel_obj : GameObject;
+var dpanel_rt : RectTransform;
 var dtext_obj : GameObject;
 var dtext_rt : RectTransform;
 var dtext : UnityEngine.UI.Text;
@@ -83,6 +84,7 @@ function Start () {
 	this.input_prefab = Resources.Load("BareInput") as UnityEngine.Object;
 	
 	this.dpanel_obj = GameObject.Find("dialogue_ui");
+	this.dpanel_rt = this.dpanel_obj.GetComponent("RectTransform") as RectTransform;
 	this.dtext_obj = GameObject.Find("dialogue_text");
 	this.dtext_rt = this.dtext_obj.GetComponent("RectTransform") as RectTransform;
 	this.dtext = this.dtext_obj.GetComponent("Text") as UnityEngine.UI.Text;
@@ -105,11 +107,9 @@ function RenderChoice(c : DialogueTree.Choice, i : int) {
 	var rt : RectTransform = o.GetComponent("RectTransform") as RectTransform;
 	var b : UnityEngine.UI.Button;
 
-	o.transform.SetParent(this.dpanel_obj.transform);
-	o.transform.localPosition.x += (rt.rect.width / 2.0) + 10;	
-	var top_y : float = this.dtext_rt.localPosition.y - (rt.rect.height / 2.0);
-	o.transform.localPosition.y = top_y - (i*(rt.rect.height + 5));
-
+	rt.SetParent(this.dpanel_rt);
+	rt.anchoredPosition = new Vector2(0,0);
+	
 	if (c.is_input) {
 		var inp : UnityEngine.UI.InputField = o.GetComponent("InputField") as UnityEngine.UI.InputField;
 		var button_obj : GameObject = GameObject.Find("button_submit") as GameObject;
