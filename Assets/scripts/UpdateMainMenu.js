@@ -60,7 +60,7 @@ function CalculateSuccessPercent() {
 
 public function SubmitApplication() {
 	var win_percent : float = this.CalculateSuccessPercent();
-	if (Random.value <= win_percent) {
+	if (100.0 * Random.value <= win_percent) {
 		this.approved.SetActive(true);
 	} else {
 		this.rejected.SetActive(true);
