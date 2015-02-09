@@ -2,6 +2,7 @@
 
 public var finished_escort = false;
 public var finished_invisible = false;
+public var finished_questions = false;
 
 function Awake() {
 	DontDestroyOnLoad(this.transform.gameObject);

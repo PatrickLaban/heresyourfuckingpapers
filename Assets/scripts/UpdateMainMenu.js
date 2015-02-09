@@ -21,6 +21,13 @@ function Start () {
 		var t : UnityEngine.UI.Toggle;
 		var b : UnityEngine.UI.Button;
 		
+		if (g.finished_questions) {
+			t = GameObject.Find("toggle_questions").GetComponent("Toggle") as UnityEngine.UI.Toggle;
+			b = GameObject.Find("button_questions").GetComponent("Button") as UnityEngine.UI.Button;
+			b.gameObject.SetActive(false);
+			t.isOn = true;	
+		}
+		
 		if (g.finished_escort) {
 			t = GameObject.Find("toggle_escort").GetComponent("Toggle") as UnityEngine.UI.Toggle;
 			b = GameObject.Find("button_escort").GetComponent("Button") as UnityEngine.UI.Button;
@@ -46,12 +53,16 @@ function CalculateSuccessPercent() {
 	var g : GameGlobals = GameGlobals.Singleton();	
 	
 	if (g != null) {
+		if (g.finished_questions) {
+			win_percent += 15.0;			
+		}
+		
 		if (g.finished_escort) {
-			win_percent += 20.0;
+			win_percent += 15.0;
 		}
 		
 		if (g.finished_invisible) {
-			win_percent += 20.0;
+			win_percent += 15.0;
 		}
 	}
 	
