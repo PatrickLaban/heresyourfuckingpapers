@@ -76,6 +76,12 @@ public function SubmitApplication() {
 	} else {
 		this.rejected.SetActive(true);
 	}
+	var g : GameObject;
+	var b : UnityEngine.UI.Button;
+	
+	g = GameObject.Find("submit") as GameObject;
+	b = g.GetComponent("Button") as UnityEngine.UI.Button;
+	b.interactable = false;	
 }
 
 function Update () {

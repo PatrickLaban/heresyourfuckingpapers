@@ -20,9 +20,13 @@ var txt_flash : UnityEngine.UI.Text;
 var dinosaur_fire : FireObjects;
 @HideInInspector
 var questions : String[];
+@HideInInspector
+var question_counter : int = 0;
 
 function Start () {
 	var g : GameObject;
+	var i : int;
+	var j : int;
 	
 	this.phase = LevelPhase.PHASE1;
 	this.is_paused = false;
@@ -33,6 +37,16 @@ function Start () {
 	this.questions[2] = "Test2";
 	this.questions[3] = "Test3";
 	this.questions[4] = "Test4";
+
+	// fisher yates eh
+	for (i=this.questions.Length - 1; i >= 0; i--) {
+		var tmp_s : String;
+		
+		j = Random.Range(0, i);
+		tmp_s = this.questions[i];
+		this.questions[i] = this.questions[j];
+		this.questions[j] = tmp_s;
+	}
 
 	g = GameObject.Find("Answered") as GameObject;
 	this.txt_answered = g.GetComponent("Text") as UnityEngine.UI.Text;	
@@ -100,7 +114,12 @@ function CheckPhase() {
 
 function GetQuestion()
 {
-	return this.questions[Random.Range(0, this.questions.length)];
+	this.question_counter += 1;
+	if (this.question_counter >= this.questions.Length) {
+		this.question_counter = 0;
+	}
+	return this.questions[this.question_counter];
+	
 }
 
 function IncDodged() {
