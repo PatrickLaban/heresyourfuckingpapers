@@ -14,10 +14,7 @@ var running_state : LevelRunningState;
 
 function Start () {
 	this.target = this.transform.position;
-	var g : GameObject;
-	
-	g = GameObject.Find("LevelRunningState") as GameObject;
-	this.running_state = g.GetComponent("LevelRunningState") as LevelRunningState;	
+	this.running_state = LevelRunningState.Singleton();
 }
 
 function Update () {
@@ -26,6 +23,7 @@ function Update () {
 	var target : Vector3;
 	
 	if ((this.running_state != null) && this.running_state.IsPaused()) {
+		this.rigidbody2D.velocity = Vector3(0,0,0);
 		return;
 	}
 	

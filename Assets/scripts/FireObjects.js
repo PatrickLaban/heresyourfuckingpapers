@@ -18,10 +18,7 @@ function Start () {
 	this.bullet_prefab = Resources.Load("question_mark_prefab") as GameObject;
 	this.foreground = GameObject.Find("foreground") as GameObject;	
 	
-	var g : GameObject;
-	
-	g = GameObject.Find("LevelRunningState") as GameObject;
-	this.running_state = g.GetComponent("LevelRunningState") as LevelRunningState;
+	this.running_state = LevelRunningState.Singleton();
 }
 
 function CreateBulletAt(loc : Vector3, unit_velocity : Vector3)
@@ -74,7 +71,7 @@ function FirePatternCrescent() {
 }
 
 function FixedUpdate () {
-	if (this.running_state.IsPaused()) {
+	if ((this.running_state != null) && this.running_state.IsPaused()) {
 		return;
 	}
 	

@@ -6,15 +6,21 @@ public var max_val : float;
 public var MOVE_SCALE = 4;
 @HideInInspector
 public var dir : int = 1;
+@HideInInspector
+var running_state : LevelRunningState;
 
 function Start () {
-
+	this.running_state = LevelRunningState.Singleton();
 }
 
 function FixedUpdate () {
 	var diff = this.dir * Time.deltaTime * MOVE_SCALE;
 	var curr : float;
 	var mov : Vector3;
+	
+	if ((this.running_state != null) && this.running_state.IsPaused()) {
+		return;
+	}
 	
 	if (this.is_x_axis) {
 		mov = new Vector3(diff, 0, 0);

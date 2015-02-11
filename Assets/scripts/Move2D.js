@@ -1,11 +1,10 @@
 ﻿#pragma strict
 
-//var MOVE_SCALE = 25;
 var moveSpeed : float = 25;
 var doLerp : boolean = true;
 
 @HideInInspector
-var LOCAL_EPSILON : float = 0.1;
+var LOCAL_EPSILON : float = 1.0;
 @HideInInspector
 var moveDirection : Vector3;
 @HideInInspector
@@ -22,10 +21,17 @@ function Update () {
 		this.target.z = this.transform.position.z;
 	}
 	
-	var dist : Vector3 = this.target - this.transform.position;
-	if (dist.magnitude > this.LOCAL_EPSILON) {
-		this.transform.position = Vector3.Lerp(this.transform.position, this.target,
-			this.moveSpeed * Time.deltaTime);
+	var dir : Vector3 = this.target - this.transform.position;
+	var mag : float = dir.magnitude;
+		
+	if (mag > this.LOCAL_EPSILON) {
+		dir.Normalize();
+		this.rigidbody2D.velocity = (dir * this.moveSpeed);
+		//this.transform.position = Vector3.Lerp(this.transform.position, this.target,
+		//	this.moveSpeed * Time.deltaTime);
+	} else {	
+		this.rigidbody2D.velocity = Vector3(0,0,0);	
+		this.target = this.transform.position;		
 	}
 	/**
 	var d = Time.deltaTime;
