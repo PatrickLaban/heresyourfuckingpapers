@@ -31,12 +31,22 @@ function Start () {
 	this.phase = LevelPhase.PHASE1;
 	this.is_paused = false;
 
-	this.questions = new String[5];
-	this.questions[0] = "Test0";
-	this.questions[1] = "Test1";
-	this.questions[2] = "Test2";
-	this.questions[3] = "Test3";
-	this.questions[4] = "Test4";
+	this.questions = new String[15];
+	this.questions[0] = "Have you ever ordered a genocide?";
+	this.questions[1] = "Have you ever been a member of a rebel militia?";
+	this.questions[2] = "Have you ever been the subject of an Interpol notice?";
+	this.questions[3] = "Are you on a sex offender registry?";
+	this.questions[4] = "Are you planning on marrying someone in this country?";
+	this.questions[5] = "Do you owe the Government money?";
+	this.questions[6] = "Is your partner the only person in their family to have sex with you?";
+	this.questions[7] = "Are you carrying any illegal drugs with you?";
+	this.questions[8] = "Have you ever been a sex trafficker?";
+	this.questions[9] = "Are you planning on marrying someone in this country?";
+	this.questions[10] = "Is she your daughter? She doesn't look like you.";
+	this.questions[11] = "What are you planning to do with your degree?";
+	this.questions[12] = "Did you pack your own bags?";
+	this.questions[13] = "Do you have a prison record?";
+	this.questions[14] = "What's your most important responsibility as a new citizen?";
 
 	// fisher yates eh
 	for (i=this.questions.Length - 1; i >= 0; i--) {
